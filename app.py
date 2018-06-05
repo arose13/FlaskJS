@@ -32,7 +32,7 @@ def home():
     return render_template('index.html', form=form)
 
 
-@app.route('/process', methods=['GET', 'POST'])
+@app.route('/process', methods=['POST'])
 @json
 def process():
     form = RandomForm(request.form)
