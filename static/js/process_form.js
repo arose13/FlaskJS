@@ -49,9 +49,9 @@ $('#main-form').submit(function(event){
 
             if (response['valid']) {
                 $.redirect('/results', response['message'])
+            } else {
+                hideForm(false)
             }
-
-            hideForm(false)
         },
         error: function(response) {
             console.log('code should never run!')

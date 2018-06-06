@@ -37,7 +37,7 @@ def results():
     jquery_post_data = request.form
     return render_template(
         'results.html',
-        response=f'Thanks {jquery_post_data["first_name"]} {jquery_post_data["last_name"]}'
+        response=f'Thanks {jquery_post_data["first_name"].title()} {jquery_post_data["last_name"].title()}'
     )
 
 
