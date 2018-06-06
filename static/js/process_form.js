@@ -15,8 +15,6 @@ $('#submit').click(function() {
 
 // Process form
 $('#main-form').submit(function(event){
-    console.log('form triggered');
-
     hideForm(true)
 
     var that = $(this),
@@ -44,7 +42,6 @@ $('#main-form').submit(function(event){
         success: function(response) {
             console.log('Got a response from the server!')
             console.log(response)
-            console.log(response.message)
 
             if (response['valid']) {
                 $.redirect('/results', response['message'])
@@ -58,6 +55,5 @@ $('#main-form').submit(function(event){
     });
 
     // Prevent HTML from submitting the form itself
-    console.log('Done')
     event.preventDefault();
 });
