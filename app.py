@@ -41,7 +41,7 @@ def results():
     )
 
 
-@app.route('/process', methods=['GET', 'POST'])
+@app.route('/process', methods=['POST'])
 @json
 def process():
     import time
