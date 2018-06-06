@@ -32,12 +32,23 @@ def home():
     return render_template('index.html', form=form)
 
 
+@app.route('/results', methods=['POST'])
+def results():
+    jquery_post_data = request.form
+    return render_template(
+        'results.html',
+        response=f'Thanks {jquery_post_data["first_name"]} {jquery_post_data["last_name"]}'
+    )
+
+
 @app.route('/process', methods=['GET', 'POST'])
 @json
 def process():
+    import time
+
     form = RandomForm(request.form)
-    print(form)
-    print('process()')
+    print('process() wait for no reason')
+    time.sleep(2.5)
 
     return {'message': form.data, 'valid': form.validate()}
 

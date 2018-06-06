@@ -1,3 +1,13 @@
+function hideForm(yes) {
+    if (yes) {
+        $('#main-content').hide();
+        $('#loading-content').show();
+    } else {
+        $('#main-content').show();
+        $('#loading-content').hide();
+    }
+}
+
 // Catch submit button pushed
 $('#submit').click(function() {
     $('#main-form').submit();
@@ -6,6 +16,8 @@ $('#submit').click(function() {
 // Process form
 $('#main-form').submit(function(event){
     console.log('form triggered');
+
+    hideForm(true)
 
     var that = $(this),
     url = '/process',
@@ -32,6 +44,14 @@ $('#main-form').submit(function(event){
         success: function(response) {
             console.log('Got a response from the server!')
             console.log(response)
+            console.log(response.message)
+            hideForm(false)
+
+            if (response['valid']) {
+                $.redirect('/results', response['message'])
+            }
+
+            hideForm(false)
         },
         error: function(response) {
             console.log('code should never run!')

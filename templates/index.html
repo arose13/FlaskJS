@@ -6,7 +6,7 @@
 <!-- Main Body-->
 <body>
 
-    <div class="container">
+    <div id="main-content" class="container">
         <h1>Hello World</h1>
 
         <!-- Bullshit form -->
@@ -30,10 +30,11 @@
         </form>
     </div>
 
-    {% include '/parts/body_scripts.html' %}
+    <div id="loading-content" style="display: none;">
+        <img src="{{ url_for('static', filename='assets/loading.gif') }}" alt="Loading GIF">
+    </div>
 
     <!-- Form processor -->
-    <!--<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>-->
     <script src="{{ url_for('static', filename='js/process_form.js') }}"></script>
 </body>
 </html>
