@@ -45,7 +45,6 @@ $('#main-form').submit(function(event){
             console.log('Got a response from the server!')
             console.log(response)
             console.log(response.message)
-            hideForm(false)
 
             if (response['valid']) {
                 $.redirect('/results', response['message'])
