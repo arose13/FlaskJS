@@ -32,6 +32,11 @@ def home():
     return render_template('index.html', form=form)
 
 
+@app.route('/multipart')
+def multipart():
+    return render_template('multipart.html', hello='From Flask!')
+
+
 @app.route('/results', methods=['POST'])
 def results():
     jquery_post_data = request.form
