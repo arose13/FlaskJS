@@ -1,17 +1,17 @@
 function hideForm(yes) {
     if (yes) {
-        $('#main-content').hide();
-        $('#loading-content').show();
+        $('#main-content').hide()
+        $('#loading-content').show()
     } else {
-        $('#main-content').show();
-        $('#loading-content').hide();
+        $('#main-content').show()
+        $('#loading-content').hide()
     }
 }
 
 // Catch submit button pushed
 $('#submit').click(function() {
-    $('#main-form').submit();
-});
+    $('#main-form').submit()
+})
 
 // Process form
 $('#main-form').submit(function(event){
@@ -20,19 +20,19 @@ $('#main-form').submit(function(event){
     var that = $(this),
     url = '/process',
     method = that.attr('method'),
-    data = {};
+    data = {}
 
     // Find anything with the attribute of 'name'
     that.find('[name]').each(function(index, value) {
         var item = $(this),
         name = item.attr('name'),
-        value = item.val();
+        value = item.val()
 
         // Store it in the data object created above
-        data[name] = value;
-    });
+        data[name] = value
+    })
 
-    console.log(data);
+    console.log(data)
 
     // Submit data
     $.ajax({
@@ -52,8 +52,8 @@ $('#main-form').submit(function(event){
         error: function(response) {
             console.log('code should never run!')
         }
-    });
+    })
 
     // Prevent HTML from submitting the form itself
-    event.preventDefault();
-});
+    event.preventDefault()
+})
