@@ -8,10 +8,13 @@ function hideForm(yes) {
     }
 }
 
-// Catch submit button pushed
-$('#submit').click(function() {
-    $('#main-form').submit()
-})
+// Catch submission using the enter button
+function enterKeySubmit(event) {
+    console.log('Submission using enter key')
+    if (event && event.keyCode == 13) {
+        $('#main-form').submit()
+    }
+}
 
 // Process form
 $('#main-form').submit(function(event){
